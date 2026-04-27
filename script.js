@@ -10,6 +10,7 @@ const divOutput = document.getElementById('divOutput');
 
 
 async function callGemini(userPrompt) {
+    const API_KEY = 'AIzaSyCKAtV0Er1X4rDp1jlGY5kU5TZ2StWpxsY'
     const MODEL_NAME = "gemini-flash-latest";
     const URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_NAME}:generateContent`;
 
