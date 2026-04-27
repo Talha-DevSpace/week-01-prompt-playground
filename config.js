@@ -1,1 +1,0 @@
-const API_KEY = 'AIzaSyCKAtV0Er1X4rDp1jlGY5kU5TZ2StWpxsY'
