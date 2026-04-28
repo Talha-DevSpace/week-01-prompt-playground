@@ -127,15 +127,6 @@ async function generate() {
     outputDiv.innerHTML = '<span class="placeholder">Generating…</span>';
     copyBtn.classList.remove("show");
 
-    const API_KEY = 'AIzaSyBbZepyOYtpwAWk813JeoCz1EcUoh0VRl0'
-    const URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent";
-
-    // const requestBody = {
-    //     contents: [{
-    //         parts: [{ text: engineeredPrompt }]
-    //     }]
-    // };
-
     try {
         const response = await fetch("/.netlify/functions/generate", {
             method: "POST",
@@ -145,7 +136,7 @@ async function generate() {
 
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const data = await response.json();
-        const result = data.candidates?.[0]?.content?.parts?.[0]?.text || "No response returned.";
+        const result = data.result;
 
         outputDiv.textContent = result;
         outputDiv.classList.add("has-content");
