@@ -130,20 +130,17 @@ async function generate() {
     const API_KEY = 'AIzaSyBbZepyOYtpwAWk813JeoCz1EcUoh0VRl0'
     const URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent";
 
-    const requestBody = {
-        contents: [{
-            parts: [{ text: engineeredPrompt }]
-        }]
-    };
+    // const requestBody = {
+    //     contents: [{
+    //         parts: [{ text: engineeredPrompt }]
+    //     }]
+    // };
 
     try {
-        const response = await fetch(URL, {
+        const response = await fetch("/.netlify/functions/generate", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "X-goog-api-key": "AIzaSyBbZepyOYtpwAWk813JeoCz1EcUoh0VRl0",
-            },
-            body: JSON.stringify(requestBody)
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ prompt: engineeredPrompt })
         });
 
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
@@ -155,7 +152,7 @@ async function generate() {
         copyBtn.classList.add("show");
 
     } catch (error) {
-        // console.error("Error:", error);
+        console.error("Error:", error);
         outputDiv.innerHTML = `<span class="placeholder">⚠️ Error: ${error.message}. Check your API key.</span>`;
     } finally {
         setLoading(false);
