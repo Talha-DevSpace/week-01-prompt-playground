@@ -1,14 +1,14 @@
-# Week 01 — Prompt Playground
+# Prompt Playground
 
-What it does: User types a topic → AI generates content via Gemini API.
+What it does: Select a use case and tone → AI generates professional content instantly.
 
-Live demo: https://talha-devspace.github.io/week-01-prompt-playground/
+Live demo: https://talha-prompt-playground.netlify.app/
 
-Built with: HTML · CSS · JavaScript · Gemini API
+Built with: HTML · CSS · JavaScript · Gemini API · Netlify Functions
 
 What I learned:
-- How to call an external AI API with fetch()
-- Structuring a simple UI for AI output
-- Deploying a static site on GitHub Pages
+- Prompt engineering techniques (role prompting, tone control, output formatting)
+- Securing API keys using Netlify serverless functions
+- Deploying frontend projects with secure backends
 
 Status: Live ✅
