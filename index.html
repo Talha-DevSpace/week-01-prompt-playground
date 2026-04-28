@@ -23,7 +23,6 @@
 <body>
 
     <div class="bg-layer"></div>
-    <!-- <div class="grid-overlay"></div> -->
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
 
@@ -37,6 +36,50 @@
                 <p class="subheading">Experiment. Refine. Create.</p>
             </div>
 
+            <!-- ── Use Case Selector ── -->
+            <div class="section use-case-section">
+                <div class="label">
+                    <span class="material-symbols-outlined">
+                        sort
+                    </span>
+                    Use Case
+                </div>
+                <select id="useCase" class="use-case">
+                    <option value="social">📱 Social Media Caption</option>
+                    <option value="email">✉️ Professional Email Reply</option>
+                    <option value="product">🛍️ Product Description</option>
+                    <option value="blog">📝 Blog Intro Paragraph</option>
+                </select>
+                <span class="material-symbols-outlined dropdown-arrow">
+                    arrow_drop_down
+                </span>
+            </div>
+
+            <!-- ── Tone Selector ── -->
+            <div class="section">
+                <div class="label">
+                    <span class="material-symbols-outlined">
+                        tune
+                    </span>
+                    Tone
+                </div>
+                <div class="tone-options">
+                    <label>
+                        <input type="radio" name="tone" value="formal" checked />
+                        <span class="tone-dot"></span> Formal
+                    </label>
+                    <label>
+                        <input type="radio" name="tone" value="casual" />
+                        <span class="tone-dot"></span> Casual
+                    </label>
+                    <label>
+                        <input type="radio" name="tone" value="persuasive" />
+                        <span class="tone-dot"></span> Persuasive
+                    </label>
+                </div>
+            </div>
+
+
             <!-- Input -->
             <div class="section">
                 <div class="label">
@@ -46,41 +89,63 @@
                     Your Prompt
                 </div>
                 <div class="textarea-wrap">
-                    <textarea id="userPromptInput" class="textarea"
-                        placeholder="e.g. Explain quantum entanglement like I'm five years old…"></textarea>
+                    <textarea id="userInput" class="textarea"
+                        placeholder="e.g. Wireless noise-cancelling headphones for remote workers…"></textarea>
                 </div>
             </div>
 
             <!-- Button -->
             <div class="section">
                 <div class="btn-wrap">
-                    <button id="btnGenerate" class="btn-generate">
-                        <span class="material-symbols-outlined generate-icon">
+                    <button id="generateBtn" class="btn-generate">
+                        <span id="genBtnIcon" class="material-symbols-outlined generate-icon">
                             wand_shine
                         </span>
-                        Generate Response
+                        <span class="spinner" id="spinner"></span>
+                        <span id="genBtnText">Generate Response</span>
                     </button>
-                    <button id="btnClear" class="btn-clear">
-                        <span class="material-symbols-outlined clear-icon">
-                            delete
-                        </span>
+                    <button id="clearBtn" class="clear-btn material-symbols-outlined clear-icon">
+                        delete
                     </button>
                 </div>
             </div>
 
+            <!-- ── Prompt Viewer ── -->
+            <details class="prompt-viewer" id="promptViewer">
+                <summary>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                    View Prompt Used
+                    <svg class="chevron" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                </summary>
+                <pre id="promptDisplay"></pre>
+            </details>
+
             <!-- Output -->
             <div class="section" style="margin-bottom:0;">
-                <div class="label">
-                    <div class="label-icon">
+                <div class="output-header">
+                    <div class="label">
                         <span class="material-symbols-outlined">
                             chat
                         </span>
+                        Output
                     </div>
-                    Output
+                    <button id="copyBtn" class="copy-btn" title="Copy output">
+                        <span class="material-symbols-outlined copy-icon">
+                            content_copy
+                        </span>
+                        <span id="copyText">Copy</span>
+                    </button>
                 </div>
                 <div class="output-box">
                     <div class="output-placeholder">
-                        <p id="divOutput" class="output-hint">
+                        <p id="output" class="output-hint">
                             <strong>No output yet</strong>
                             Enter a prompt above and hit Generate
                         </p>
