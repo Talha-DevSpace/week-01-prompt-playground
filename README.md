@@ -22,4 +22,4 @@ What I learned:
 - Securing API keys using Netlify serverless functions
 - Deploying frontend projects with secure backends
 
-Status: Live ✅ + Fiverr gig active
+Status: Live ✅
